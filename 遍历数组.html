@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 练习
+请利用循环遍历数组中的每个名字，并显示Hello, xxx!：
+请尝试for循环和while循环，并以正序、倒序两种方式遍历。 -->
+    <script>
+        var arr = ['Bart', 'Lisa', 'Adam'];
+        for (var i in arr) {
+            console.log('Hello,' + arr[i] + '!');
+        }
+        console.log('----------');
+        for (var i = arr.length - 1; i >= 0; i--) {
+            console.log('Hello,' + arr[i] + '!');
+        }
+        console.log('----------');
+        var i = 0;
+        while (i < arr.length) {
+            console.log('Hello,' + arr[i] + '!');
+            i++;
+        }
+        console.log('----------');
+        var a = arr.length - 1;
+        while (a >= 0) {
+            console.log('Hello,' + arr[a] + '!');
+            a--;
+        }
+    </script>
+</body>
+
+</html>
