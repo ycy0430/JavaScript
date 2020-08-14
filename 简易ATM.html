@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 题目描述：
+
+- 里面现存有  100 块钱。
+
+- 如果存钱，就用输入钱数加上先存的钱数, 之后弹出显示余额提示框
+
+- 如果取钱，就减去取的钱数，之后弹出显示余额提示框
+
+- 如果显示余额，就输出余额
+
+- 如果退出，弹出退出信息提示框 -->
+    <script>
+        var money = 100,
+            temp = 0,
+            menu = '1:存钱\n2:取钱\n3:余额\n4:退出'
+        exit = 0;
+        while (exit != 4) {
+            switch (exit = parseInt(prompt(menu))) {
+                case 1:
+                    temp = parseInt(prompt('存入多少钱:'));
+                    if (temp >= 0 && !isNaN(temp)) {
+                        money += temp;
+                        alert('已经存入' + temp + '元，当前余额为：' + money + '元');
+                    } else {
+                        alert('输入参数有误');
+                    }
+                    break;
+                case 2:
+                    temp = parseInt(prompt('取出多少钱:'));
+                    if (temp >= 0 && !isNaN(temp) && temp <= money) {
+                        money -= temp;
+                        alert('已经取出' + temp + '元，当前余额为：' + money + '元');
+                    } else if (temp >= money) {
+                        alert('余额不足！');
+                    } else {
+                        alert('输入参数有误');
+                    }
+                    break;
+                case 3:
+                    alert('当前余额为：' + money + '元');
+                    break;
+                case 4:
+                    alert('欢迎下次使用！');
+            }
+        }
+    </script>
+</body>
+
+</html>

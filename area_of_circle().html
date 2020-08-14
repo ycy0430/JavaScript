@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 练习
+定义一个计算圆面积的函数area_of_circle()，它有两个参数：
+
+r: 表示圆的半径；
+pi: 表示π的值，如果不传，则默认3.14 -->
+    <script>
+        function area_of_circle(r, pi) {
+            if (pi == null) {
+                pi = 3.14;
+            }
+            var result = 0;
+            result = pi * Math.pow(r, 2);
+            return result;
+        }
+        // console.log(area_of_circle(2, 3.1416));
+        // 测试:
+        if (area_of_circle(2) === 12.56 && area_of_circle(2, 3.1416) === 12.5664) {
+            console.log('测试通过');
+        } else {
+            console.log('测试失败');
+        }
+    </script>
+</body>
+
+</html>
