@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ## 2 - 简易计算器
+
+        // - 题目描述：
+
+        //   - 用户在弹出的输入框中选择要做的运算
+
+        //   - 用户选择后弹出两个输入框，让用户输入数据
+
+        //   - 根据用户选择的操作和输入的数据，计算出最后结果并弹出提示框显示结果
+        function calculator(operator, num1, num2) {
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+            if (isNaN(num1) || isNaN(num2)) {
+                return '请输入数字';
+            } else if (operator == '+') {
+                return num1 + num2;
+            } else if (operator == '-') {
+                return num1 - num2;
+            } else if (operator == '*') {
+                return num1 * num2;
+            } else if (operator == '/') {
+                return num1 / num2;
+            } else
+                return '输入有误';
+        }
+        var num1 = prompt('请输入第一个数');
+        var operator = prompt('请输入运算符：+-*/');
+        var num2 = prompt('请输入第二个数');
+        alert(calculator(operator, num1, num2));
+    </script>
+</body>
+
+</html>
