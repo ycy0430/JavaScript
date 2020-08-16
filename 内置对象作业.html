@@ -124,8 +124,15 @@
         // ​	对以下学员随机排序，生成一个新数组：
 
         // ​	var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"]；
-
-        // ​
+        var arr3 = ["鹿晗", "王俊凯", "蔡徐坤", "彭于晏", "周杰伦", "刘德华", "赵本山"];
+        var newarr3 = [];
+        // ​	注意：不要有重复的学员
+        for (var i = 0; i < 7; i++) {
+            var choose = getRandom(0, arr3.length - 1);
+            newarr3.push(arr3[choose]);
+            arr3.splice(choose, 1);
+        }
+        console.log(newarr3);
     </script>
 </body>
 
