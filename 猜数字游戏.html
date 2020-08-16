@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+
+        function guessNum() {
+            var i = 10;
+            var count = i;
+            var num = parseInt(prompt('请输入1~50之间的一个整数，机会还剩' + i + '次'));
+            i--;
+            var target = getRandomIntInclusive(1, 50);
+            while (i > 0) {
+                if (num > target) {
+                    var num = parseInt(prompt('你猜的数字大了，机会还剩' + i + '次，继续猜：'));
+                    i--;
+                } else if (num < target) {
+                    var num = parseInt(prompt('你猜的数字小了，机会还剩' + i + '次，继续猜：'));
+                    i--;
+                } else if (num == target) {
+                    alert('猜对了!只用了' + (count - i) + '次机会!');
+                    break;
+                }
+            }
+            if (i <= 0) {
+                alert('没次数了!')
+            };
+        }
+        guessNum();
+    </script>
+</body>
+
+</html>

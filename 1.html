@@ -9,14 +9,12 @@
 
 <body>
     <script>
-        var arr = [2, 0, 6, 1, 77, 52, 0, 25, 7, 7, 1, 6];
-        var newarr = [];
-            for (i = 0; i < arr.length; i++) {
-                for (var j = 0; j < arr.length; j++) {
-if(i==j){}
-                }
-            }
-        console.log(newarr);
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+        console.log(getRandomIntInclusive(1, 6));
     </script>
 </body>
 

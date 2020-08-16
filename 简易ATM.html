@@ -25,9 +25,9 @@
             menu = '1:存钱\n2:取钱\n3:余额\n4:退出'
         exit = 0;
         while (exit != 4) {
-            switch (exit = parseInt(prompt(menu))) {
+            switch (exit = parseFloat(prompt(menu))) {
                 case 1:
-                    temp = parseInt(prompt('存入多少钱:'));
+                    temp = parseFloat(prompt('存入多少钱:'));
                     if (temp >= 0 && !isNaN(temp)) {
                         money += temp;
                         alert('已经存入' + temp + '元，当前余额为：' + money + '元');
@@ -36,7 +36,7 @@
                     }
                     break;
                 case 2:
-                    temp = parseInt(prompt('取出多少钱:'));
+                    temp = parseFloat(prompt('取出多少钱:'));
                     if (temp >= 0 && !isNaN(temp) && temp <= money) {
                         money -= temp;
                         alert('已经取出' + temp + '元，当前余额为：' + money + '元');

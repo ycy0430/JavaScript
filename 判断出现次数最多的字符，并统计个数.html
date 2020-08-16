@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getMost(str) {
+            var mostCount = 0;
+            var most = str.charAt(0);
+            for (var i = 0; i < str.length; i++) {
+                var index = str.indexOf(str.charAt(i));
+                var count = 0;
+                while (index !== -1) {
+                    count++;
+                    index = str.indexOf(str.charAt(i), index + 1);
+                }
+                if (count > mostCount) {
+                    mostCount = count;
+                    most = str.charAt(i);
+                }
+            }
+            console.log('出现最多的字符为“' + most + '” 次数为：' + mostCount + '次');
+        }
+        var str = "aaab12321422222222255bb......b";
+        getMost(str);
+    </script>
+</body>
+
+</html>
