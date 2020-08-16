@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ## 1 - 基础作业
+
+        // ### 1.1  数组操作
+
+        // ​	题目描述：把下面数组的首尾两个元素互换
+
+        var arr = ["鹿晗", "王俊凯", "蔡徐坤", "彭于晏", "周杰伦", "刘德华", "赵本山"];
+        arr.unshift(arr.pop(arr.length - 1));
+        arr.push(arr[1]);
+        console.log(arr);
+
+
+        // ### 1.2 计算指定日期是今年的第几天
+
+        // ​	题目描述：制作一个函数，getDayNum( 年月日日期 )，可以返回指定日期是当前年的第几天
+
+        // ​	例：  getDayNum( “2019-1-2”)    返回值为：2
+
+        function getDayNum(date) {
+            var date = date.split('-');
+            var date1 = new Date(date[0], date[1], date[2]);
+            var date2 = new Date(date[0], 1, 0);
+            var times = (date1.getTime() - date2.getTime()) / 1000;
+            var day = d = parseInt(times / 60 / 60 / 24);
+            return day;
+        }
+        console.log(getDayNum("2019-12-31"));
+
+
+        // ### 1.3 16进制随机颜色，
+
+        // ​	题目描述：使用Math对象，制作一个16进制的随机颜色
+
+        // ​	题目提示：16进制包括 “ 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F ”
+
+        // ​	例： “#f23a4b” 
+        var color = '#';
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        for (var i = 0; i <= 5; i++) {
+            color += arr[getRandom(0, arr.length - 1)];
+        }
+        console.log(color);
+
+
+
+        // ### 1.4 字符串操作
+
+        // 字符串：“abaasdffggghhjjkkgfddsssss3444343”，问题如下： 
+
+        // 1、 字符串的长度 
+        // 2、 取出指定位置的字符，如：0,3,5,9等 
+        // 3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等 
+        // 4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法 
+        // 5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+        // 6、 找出以上字符串中出现次数最多的字符和出现的次数 
+        // 7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+
+        var str = 'abaasdffggghhjjkkgfddsssss3444343';
+        console.log(str.length);
+        console.log(str.charAt(0));
+        console.log(str.indexOf('a') == -1 ? '不存在' : '存在');
+        while (str.indexOf('g') !== -1) {
+            str = str.replace('g', '22');
+        }
+        console.log(str.substring(1, 5));
+
+        function getMost(str) {
+            var mostCount = 0;
+            var most = str.charAt(0);
+            for (var i = 0; i < str.length; i++) {
+                var index = str.indexOf(str.charAt(i));
+                var count = 0;
+                while (index !== -1) {
+                    count++;
+                    index = str.indexOf(str.charAt(i), index + 1);
+                }
+                if (count > mostCount) {
+                    mostCount = count;
+                    most = str.charAt(i);
+                }
+            }
+            console.log('出现最多的字符为“' + most + '” 次数为：' + mostCount + '次');
+        }
+        getMost(str);
+        for (var j = 0; j < str.length; j++) {
+            console.log('@' + str.charAt(j) + '@');
+            // str.charAt(0) = '@' + str.charAt(j) + '@';
+        }
+        // ## 2 - 进阶作业
+
+        // ### 2.1  随机选学员
+
+        // ​	从以下学员名单中随机选出4个学员：
+
+        var arr2 = ["鹿晗", "王俊凯", "蔡徐坤", "彭于晏", "周杰伦", "刘德华", "赵本山"];
+        var newarr2 = [];
+        // ​	注意：不要有重复的学员
+        for (var i = 0; i < 4; i++) {
+            var choose = getRandom(0, arr2.length - 1);
+            newarr2.push(arr2[choose]);
+            arr2.splice(choose, 1);
+        }
+        console.log(newarr2);
+
+
+
+        // ### 2.2  随机排序
+
+        // ​	对以下学员随机排序，生成一个新数组：
+
+        // ​	var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"]；
+
+        // ​
+    </script>
+</body>
+
+</html>
