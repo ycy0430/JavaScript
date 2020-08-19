@@ -18,9 +18,10 @@
         //   - 用户选择后弹出两个输入框，让用户输入数据
 
         //   - 根据用户选择的操作和输入的数据，计算出最后结果并弹出提示框显示结果
-        function calculator(operator, num1, num2) {
-            num1 = parseFloat(num1);
-            num2 = parseFloat(num2);
+        function calculator() {
+            var num1 = parseFloat(prompt('请输入第一个数'));
+            var operator = prompt('请输入运算符：+-*/');
+            var num2 = parseFloat(prompt('请输入第二个数'));
             if (isNaN(num1) || isNaN(num2)) {
                 return '请输入数字';
             } else if (operator == '+') {
@@ -34,10 +35,7 @@
             } else
                 return '输入有误';
         }
-        var num1 = prompt('请输入第一个数');
-        var operator = prompt('请输入运算符：+-*/');
-        var num2 = prompt('请输入第二个数');
-        alert(calculator(operator, num1, num2));
+        alert(calculator());
     </script>
 </body>
 
