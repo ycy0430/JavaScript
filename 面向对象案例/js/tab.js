@@ -54,7 +54,7 @@ class Tab {
             var section = '<section class="conactive">测试 ' + random + '</section>';
             // (2) 把这两个元素追加到对应的父元素里面
             that.ul.insertAdjacentHTML('beforeend', li);
-            that.fsection.insertAdjacentHTML('beforeend', section);
+            that.insertAdjacentHTML('beforeend', section);
             that.init();
         }
         // 3. 删除功能
