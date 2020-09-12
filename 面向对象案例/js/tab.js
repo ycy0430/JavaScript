@@ -83,7 +83,7 @@ class Tab {
         var input = this.children[0];
         input.value = str;
         input.select(); // 文本框里面的文字处于选定状态
-        // 当我们离开文本框就把文本框里面的值给span 
+        // 当我们离开文本框就把文本框里面的值给span  
         input.onblur = function() {
             this.parentNode.innerHTML = this.value;
         };
