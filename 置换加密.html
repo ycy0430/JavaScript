@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main {
+            width: 250px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>置换加解密工具</h1>
+        <form>
+
+            <br>加密：<input type="text" id="str" required="required">
+
+            <br> 秘钥：<input type="text" id="key" required="required"><br>
+
+            <input type="button" id="btn" value="加密"> <input type="button" id="btn1" value="解密"><br> 结果：
+            <span id="result1"></span>
+
+        </form>
+    </div>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    //加密
+    btn.onclick = function() {
+            //获取要处理的字符串str
+            var str = document.getElementById('str').value;
+            //获取密钥key
+            var key = document.getElementById('key').value;
+            //获取需要输出结果的元素
+            var result1 = document.getElementById('result1');
+            //定义结果字符串
+            var result = "";
+            //将字符串切割为数组 "abc"=>['a','b','c']
+            var strarrs = str.split("");
+            //将密钥切割为数组 "021"=>['0','2','1']
+            var keyarrs = key.split("");
+
+            //当字符串数组长度不小于密钥数组长度时，做循环排序
+            while (strarrs.length >= keyarrs.length) {
+                //排序前密钥长度的数组，比如密钥长度为3 就排前三个
+                for (var j = 0; j < key.length; j++) {
+                    //二维数组 按序获取密钥的值所对应的字符串数组中的值 存入结果
+                    //如strarrs=['a','b','c']; keyarrs['1','0','2']
+                    //strarrs[key[0]] = strarrs[1] ='b'
+                    result += strarrs[key[j]];
+                }
+                //每排序 密钥长度 个，将这几个从字符串数组中删除，循环下组排序
+                strarrs.splice(0, key.length);
+            }
+            //当剩下的数组元素个数不足 密钥长度时，在后面补"*"代替，再排序添加到结果
+            if (strarrs.length > 0) {
+                //h：离密钥长度差多少
+                h = key.length - strarrs.length
+                    //循环补h个*
+                for (var i = 0; i < h; i++) {
+                    strarrs.push("*");
+                }
+                //排序
+                for (var j = 0; j < keyarrs.length; j++) {
+                    result += strarrs[key[j]];
+                }
+            }
+            //输出结果
+            result1.innerHTML = result;
+        }
+        //解密
+    btn1.onclick = function() {
+        var str = document.getElementById('str').value;
+        var key = document.getElementById('key').value;
+        var result1 = document.getElementById('result1');
+        var result = "";
+        var strarrs = str.split("");
+        var keyarrs = key.split("");
+        //按密钥长度为组 循环输出结果
+        while (strarrs.length >= key.length) {
+            for (var j = 0; j < key.length; j++) {
+                var a = j.toString();
+                //按序获取0、1、2...在秘钥中所对应的位置，在加密后的字符串中找到并输出
+                result += strarrs[keyarrs.indexOf(a)];
+            }
+            strarrs.splice(0, key.length);
+        }
+        result1.innerHTML = result;
+    }
+</script>
+
+</html>
